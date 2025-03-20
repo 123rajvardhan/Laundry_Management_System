@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-blue-100">
+    <div className="flex flex-col items-center justify-center min-h-screen mb-0 p-6 bg-white">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
         Our Comprehensive Laundry Services
       </h2>

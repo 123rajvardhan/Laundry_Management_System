@@ -9,7 +9,7 @@ const Login = () => {
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-    setError(""); 
+    setError("");
   };
 
   const handleChange = (e) => {
@@ -36,21 +36,23 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-900">
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 rounded-3xl shadow-2xl text-white w-96 transform hover:scale-105 transition-transform duration-300">
-        <h2 className="text-3xl font-bold text-center">{isLogin ? "Login" : "Sign Up"}</h2>
+    <div className="h-screen flex items-center justify-center bg-gradient-to-r from-[#dadde3] to-[#8db1ec] relative">
+      <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.15)_0%,_rgba(255,255,255,0)_100%)] opacity-40"></div>
 
-        {error && <p className="text-red-400 text-center">{error}</p>}
+      <div className="relative p-8 rounded-3xl shadow-xl bg-white/10 backdrop-blur-lg border border-white/20 w-96 text-black">
+        <h2 className="text-4xl font-extrabold text-center tracking-wide">{isLogin ? "Login" : "Sign Up"}</h2>
 
-        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        {error && <p className="text-red-400 text-center mt-2">{error}</p>}
+
+        <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
           {!isLogin && (
             <div>
-              <label className="block text-sm font-semibold">Username</label>
+              <label className="block text-sm font-medium">Username</label>
               <input
                 type="text"
                 name="username"
                 placeholder="Enter your username"
-                className="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 rounded-lg bg-white/20 text-black border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
                 onChange={handleChange}
                 required
               />
@@ -58,24 +60,24 @@ const Login = () => {
           )}
 
           <div>
-            <label className="block text-sm font-semibold">Email</label>
+            <label className="block text-sm font-medium">Email</label>
             <input
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-3 rounded-lg bg-white/20 text-black border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
               onChange={handleChange}
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold">Password</label>
+            <label className="block text-sm font-medium">Password</label>
             <input
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-3 rounded-lg bg-white/20 text-black border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
               onChange={handleChange}
               required
             />
@@ -83,16 +85,19 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full p-2 bg-purple-700 hover:bg-purple-800 rounded-lg shadow-lg font-semibold transition duration-200"
+            className="w-full p-3 text-lg bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={loading}
           >
             {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
           </button>
         </form>
 
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 text-black">
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-          <span onClick={toggleForm} className="text-yellow-300 cursor-pointer hover:underline">
+          <span
+            onClick={toggleForm}
+            className="text-blue-400 cursor-pointer hover:text-blue-500 transition-colors duration-200"
+          >
             {isLogin ? "Sign Up" : "Login"}
           </span>
         </p>
@@ -102,3 +107,4 @@ const Login = () => {
 };
 
 export default Login;
+
